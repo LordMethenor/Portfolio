@@ -1,0 +1,100 @@
+<html>
+
+  <body>
+
+    <center>
+    <div id="game_area">
+      <img src="start.png" onclick="start_game()">
+    </div>
+    <center>
+
+    <script>
+
+    // Text Prompts
+    var intro;
+    intro = "You've awoken in a dark jungle. The sun is setting and there's little daylight left. You hear terrible sounds approaching. You look to your left, and to your right, and your eyes catch on the gleam something diamond. It's a sword."
+
+    var sword_text;
+    sword_text = "A velociraptor crashes through the jungle brush. It hesitates for a moment, analyzing you as prey. It's made its decision, and rushes toward you."
+
+    var has_sword;
+    has_sword = "Instinct takes over, you bring up the sword, pointing it toward the prehistoric beast. While it may not understand exactly what it is, you seem like a larger and more dangerous threat. The velociraptor flees back into the jungle. "
+
+    var no_sword;
+    no_sword = "You are defenseless. Despite curling up into a ball, you still end up a delicious dinner for the beast."
+
+    var user_quit;
+    user_quit = false
+
+    // Begin Program
+    function start_game() {
+      alert("Dino Battle!");
+      var user_play;
+      user_play = confirm("Do you want to play?");
+      if (user_play==true) {
+        document.getElementById("game_area").innerHTML='<img src="game01.png" onclick="part01()">';
+      }
+      else {
+        alert("I'm sorry you don't want to play.");
+      }
+    }
+
+    function part01(){
+      alert(intro);
+      document.getElementById("game_area").innerHTML='<img src="game02.png" onclick="part02()">';
+    }
+
+    function part02(){
+      sword = confirm("Do you want to take the sword?");
+      if (sword==true) {
+        document.getElementById("game_area").innerHTML='<img src="game04a.png" onclick="part03a()">';
+      }
+
+      else {
+        document.getElementById("game_area").innerHTML='<img src="game04b.png" onclick="part03b()">';
+      }
+    }
+
+    function part03a(){
+      alert("You took the sword.");
+      document.getElementById("game_area").innerHTML='<img src="game03.png" onclick="part04a()">';
+    }
+
+    function part03b(){
+      alert("You didn't take the sword.");
+      document.getElementById("game_area").innerHTML='<img src="game03.png" onclick="part04b()">';
+   }
+
+   function part04a(){
+     alert(sword_text);
+     document.getElementById("game_area").innerHTML='<img src="game05a.png" onclick="part05a()">';
+   }
+
+   function part04b(){
+     alert(sword_text);
+     document.getElementById("game_area").innerHTML='<img src="game05b.png" onclick="part05b()">';
+   }
+
+   function part05a(){
+     alert(has_sword);
+     alert("Game over. Thanks for playing!");
+     document.getElementById("game_area").innerHTML='<img src="game06.png" onclick="ending()">';
+   }
+
+   function part05b(){
+     alert(no_sword);
+     alert("Game over. Thanks for playing!");
+     document.getElementById("game_area").innerHTML='<img src="game06.png" onclick="ending()">';
+   }
+
+   function ending(){
+     alert("The game is restarting!");
+     document.getElementById("game_area").innerHTML='<img src="start.png" onclick="start_game()">';
+   }
+
+
+    </script>
+
+  </body>
+
+</html>
